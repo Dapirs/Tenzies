@@ -1,8 +1,24 @@
 .dice-container {
-  background-color: #F5F5F5;
-  height: 500px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    background-color: #F5F5F5;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dice {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+.roll{
+    background-color: #5035FF;
+    border: none;
+    color: #FFFFFF;
+    padding: 16px 8px;
+    width: 120px;
+    border-radius: 16px;
+
 }

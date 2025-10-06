@@ -1,5 +1,8 @@
+import './styles/Dice.css'
 export default function Dice(props){
     return(
-        <button>{props.value}</button>
+        <button
+            style={{backgroundColor: props.isHeld ? '#59E391' : 'white'}}
+            className='die'>{props.value}</button>
     )
 }
