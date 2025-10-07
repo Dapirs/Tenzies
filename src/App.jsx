@@ -4,9 +4,10 @@ import Dice from './Dice'
 import {nanoid} from 'nanoid'
 
 export default function App() {
-  const [dice, setDice] = React.useState(getNewDice())
-  let newDice = dice.map((number) => <Dice value={number.value} isHeld={number.isHeld} hold={()=> holdDice(number.id)} />)
+    const [dice, setDice] = React.useState(getNewDice())
+    let newDice = dice.map((number) => <Dice value={number.value} isHeld={number.isHeld} hold={()=> holdDice(number.id)} />)
 
+    let gameWon = dice.every((die)=> die.isHeld && die.value === dice[0].value)
     function getNewDice(){
       let arr=[]
       for(let i=0;i<10;i++){
@@ -16,7 +17,11 @@ export default function App() {
     }
 
     function rollDice(){
-      setDice(getNewDice())
+      setDice((prevDice) => prevDice.map((die)=> die.isHeld ? die : {...die, value: Math.ceil(Math.random() * 6)}))
+    }
+
+    function newGame(){
+        setDice(getNewDice())
     }
 
     function holdDice(id) {
@@ -30,7 +35,7 @@ export default function App() {
           <div className='dice'>
               {newDice}
           </div>
-          <button onClick={rollDice} className='roll'>Roll</button>
+          <button onClick={gameWon ? newGame : rollDice} className='roll'>{gameWon ? 'New Game' : 'Roll Again'}</button>
 
         </div>
       </>
