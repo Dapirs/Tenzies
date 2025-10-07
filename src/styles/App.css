@@ -1,11 +1,16 @@
+*{
+    margin: 0;
+}
 .dice-container {
     background-color: #F5F5F5;
     height: 500px;
     width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    border-radius: 10px;
+    border: none;
 }
 .dice {
     display: grid;
@@ -17,8 +22,16 @@
     background-color: #5035FF;
     border: none;
     color: #FFFFFF;
-    padding: 16px 8px;
-    width: 120px;
+    padding: 16px 20px;
     border-radius: 16px;
+    font-family: Quicksand, sans-serif;
+    font-size: 1.5rem;
 
+}
+h1{
+    font-size: 5rem;
+}
+p{
+    font-family: Quicksand, sans-serif;
+    font-size: 1.2rem;
 }

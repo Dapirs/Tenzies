@@ -1,7 +1,8 @@
-body{
-  background-color: #0B2434;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
+body {
+    font-family: Ephesis, sans-serif;
+    background-color: #0B2434;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }

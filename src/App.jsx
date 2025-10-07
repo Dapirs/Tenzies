@@ -31,7 +31,7 @@ export default function App() {
       <>
         <div className='dice-container'>
           <h1>Tenzies</h1>
-          <p>Roll the dice until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+          <p>{gameWon ? 'You won the game' : 'Roll the dice until all dice are the same. '}</p>
           <div className='dice'>
               {newDice}
           </div>
