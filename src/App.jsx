@@ -1,15 +1,16 @@
 import React from 'react'
 import './styles/App.css'
 import Dice from './Dice'
+import {nanoid} from 'nanoid'
 
 export default function App() {
   const [dice, setDice] = React.useState(getNewDice())
-  let newDice = dice.map((number) => <Dice value={number.value} isHeld={number.isHeld} />)
+  let newDice = dice.map((number) => <Dice value={number.value} isHeld={number.isHeld} hold={()=> holdDice(number.id)} />)
 
     function getNewDice(){
       let arr=[]
       for(let i=0;i<10;i++){
-          arr[i]= {value: Math.ceil(Math.random() * 6), isHeld: true}
+          arr[i]= {key: i+1, value: Math.ceil(Math.random() * 6), isHeld: false, id: nanoid()}
       }
       return arr;
     }
@@ -18,10 +19,9 @@ export default function App() {
       setDice(getNewDice())
     }
 
-    function holding(){
-      setDice((prevDice)=>prevDice.map((obj)=>{ isHeld: !obj.isHeld}))
+    function holdDice(id) {
+        setDice((prevDice) => prevDice.map((die) => die.id === id ? {...die, isHeld: !die.isHeld} : die))
     }
-
     return (
       <>
         <div className='dice-container'>
@@ -33,9 +33,6 @@ export default function App() {
           <button onClick={rollDice} className='roll'>Roll</button>
 
         </div>
-
       </>
     )
 }
-
-
